@@ -19,19 +19,19 @@ public class Main {
 
     private static void buildPyramid(int levels) {
 
-        for (int i = 1; i <= levels; i++) {
+        for (int level = 1; level <= levels; level++) {
 
-            String level = i + "";
+            String resultLevel = level + "";
 
-            for (int j = i - 1; j > 0; j--) {
-                level = j + level + j;
+            for (int number = level - 1; number > 0; number--) {
+                resultLevel = number + resultLevel + number;
             }
 
-            for (int j = i; j < levels; j++) {
-                level = " " + level;
+            for (int i = level; i < levels; i++) {
+                resultLevel = " " + resultLevel;
             }
 
-            System.out.println(level);
+            System.out.println(resultLevel);
         }
     }
 }
