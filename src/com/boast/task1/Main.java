@@ -1,10 +1,13 @@
+/*
+ * Main.java 22/07/2017
+ *
+ * Created by Bondarenko Oleh
+ */
+
+
 package com.boast.task1;
 
 import java.util.Scanner;
-
-/**
- * Created by Bondarenko Oleh on 22.07.2017.
- */
 
 public class Main {
 
@@ -21,14 +24,14 @@ public class Main {
 
         for (int level = 1; level <= levels; level++) {
 
-            String resultLevel = level + "";
+            StringBuilder resultLevel = new StringBuilder().append(level);
 
             for (int number = level - 1; number > 0; number--) {
-                resultLevel = number + resultLevel + number;
+                resultLevel.insert(0, number).append(number);
             }
 
             for (int i = level; i < levels; i++) {
-                resultLevel = " " + resultLevel;
+                resultLevel.insert(0, ' ');
             }
 
             System.out.println(resultLevel);
