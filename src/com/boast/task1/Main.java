@@ -7,21 +7,29 @@
 
 package com.boast.task1;
 
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        Scanner in = new Scanner(System.in);
-        int levels = in.nextInt();
+        try (Scanner in = new Scanner(System.in)) {
+            new Pyramid(in.nextByte()).build();
+        } catch (InputMismatchException e) {
+            System.out.println("Invalid input");
+        }
+    }
+}
 
-        buildPyramid(levels);
+class Pyramid{
+    private byte levels;
 
+    Pyramid(byte levels){
+        this.levels = levels;
     }
 
-    private static void buildPyramid(int levels) {
-
+    public void build(){
         for (int level = 1; level <= levels; level++) {
 
             StringBuilder resultLevel = new StringBuilder().append(level);
